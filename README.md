@@ -84,9 +84,9 @@ k
                     <div class="sliderHolder">
                         <div class="slider" id="startMenuSlidingContent">
                             <center><img src="/favicons/favicon-96x96.png" /></center>
-                            <h1>arras.io</h1>
+                            <h1>antelope-arras-public</h1>
                             <div id="serverName"><h4 class="nopadding">Connecting...</h4></div>
-                            <input type="text" autofocus tabindex="1" spellcheck="false" placeholder="This is the tale of:" id="playerNameInput" maxlength="24" />
+                            <input type="text" autofocus tabindex="1" spellcheck="false" placeholder="This is the tale of:" id="playerNameInput" maxlength="30" />
                         </div>
                         <div class="slider" id="startMenuSlidingTrigger"><h3 class="nopadding"><span id="viewOptionText">view options</span>&nbsp;&nbsp;<i class="arrow" id="optionArrow" style="transform:rotate(-45deg);-webkit-transform:rotate(-45deg)"></i></h3></div>
                         <div class="slider" id="startMenuSlidingContent"> 
