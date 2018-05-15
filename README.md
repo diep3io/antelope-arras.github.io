@@ -7,7 +7,7 @@ k
     <!-- Meta Properties -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Arras.io: A fan-made sequel of diep.io! Survive and shoot at others while keeping your own tank alive!">
+    <meta name="description" content="Arras.io: A fan-made sequel of diep.io! Survive and shoot at others while keeping your lol tank alive">
     <meta name="robots" content="index, follow">
     <meta property="og:image" content="/favicons/favicon-96x96.png" />
     <meta property="og:image:width" content="52" />
@@ -94,7 +94,7 @@ k
                             <optionsHeader>Advanced Controls:</optionsHeader><br>
                             <table>
                                 <tr>
-                                    <td><b>E</b>: auto-fire</td>
+                                    <td><b>A</b>: auto-fire</td>
                                     <td><b>C</b>: auto-spin</td>
                                 </tr>
                                 <tr>
@@ -160,10 +160,10 @@ k
     (function() {
         if (window !== window.top || window.location.hostname !== "arras.surge.sh") {
             try {
-                window.top.location = "http://arras.surge.sh/"
+                window.top.location = "http://diep3io.github.io/antelope-arras.github.io"
             } catch(e) {
                 document.body.addEventListener('click', function() {
-                    window.top.location = "http://arras.surge.sh/"
+                    window.top.location = "http://diep3io.github.io/antelope-arras.github.io"
                 })
             }
         } else {
@@ -188,7 +188,7 @@ k
         window.onerror = function(message, source, lineno, colno, error) {
             window.onerror = null
             if (error) error = error.toString()
-            console.warn("The game crashed, refreshing page to recover from error")
+            console.warn("The game crashed, Go take a hike. It will be up when you return")
             if (error == null && lineno == 0 && colno == 0) return
             var e = btoa(JSON.stringify({
                 message: message,
