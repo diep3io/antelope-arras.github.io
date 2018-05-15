@@ -1,6 +1,7 @@
 # antelope-arras.github.io
 A fan made arras.io server
 k
+Hosted by Antelope and Xenyoz!
 <!doctype html>
 <html lang="en" id="mainBody">
 <head>
@@ -76,7 +77,7 @@ k
                         <!--
                             <a style="background:#9974E8;float:right" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YJ42X4KU6ETPA">Paypal</a>   
                             <a style="background:#E27061;float:right" href="https://www.patreon.com/diep2dev">Patreon</a>
-                            <h5 class="nopadding" style="margin:9px;float:right;display:inline">Donate to the original developer:</h5>
+                            <h5 class="nopadding" style="margin:9px;float:right;display:inline">Donate to neph the developer. All hail Neph!!!!:</h5>
                         -->
                     </div>
                 </div>
