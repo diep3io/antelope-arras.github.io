@@ -2,210 +2,83 @@
 A fan made arras.io server
 k
 Hosted by Antelope and Xenyoz!
-<!doctype html>
-<html lang="en" id="mainBody">
-<head>
-    <!-- Meta Properties -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Arras.io: A fan-made sequel of diep.io! Survive and shoot at others while keeping your lol tank alive">
-    <meta name="robots" content="index, follow">
-    <meta property="og:image" content="/favicons/favicon-96x96.png" />
-    <meta property="og:image:width" content="52" />
-    <meta property="og:image:height" content="52" />
-    <title>arras.io</title>
-    <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet"> 
-    <link rel="stylesheet" href="css/main.css" />
-    <!-- Version Control -
-    <script>
-        var VERSION = localStorage.getItem('versionHash');
-        (function versionControl() {
-            let request = new XMLHttpRequest();
-            let url = window.location.href + "/api/vhash";
-            console.log("Checking version...");
-            return new Promise((resolve, reject) => {
-                request.open('GET', url);
-                request.onload = () => { resolve(request.response); console.log('Version check successful.'); };
-                request.onerror = () => { reject(request.statusText); console.log('Version check failed.'); console.log(request.statusText); };
-                request.send();
-            });
-        })().then(function resolveVersion(data) {
-            localStorage.setItem('versionHash', data);
-            if (VERSION !== data) {
-                console.log("Updating!");   
-                localStorage.setItem('updated', 'datgudshit');
-                location.reload(true);
-            }
-        });
-    </script>
-    -->
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/favicons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/favicons/manifest.json">
-    <meta name="msapplication-TileColor" content="#8abc3f">
-    <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
-    <meta name="theme-color" content="#8abc3f">
-</head>
-<body oncontextmenu="return false;" id="mainBody">
-    <div id="gameAreaWrapper">
-        <canvas id="gameCanvas" tabindex="1" id="cvs" tabindex="1"></canvas>
-    </div>
-    <div id="mainWrapper">
-        <div id="startMenuWrapper">
-            <div id="startMenu">
-                <div id="twitterHolder" class="startMenuHolder" style="height:100%">
-                    <a class="twitter-timeline" data-width="350" data-height="265" data-theme="light" data-link-color="#B9E87E" href="https://twitter.com/arras_dev?ref_src=twsrc%5Etfw">Tweets by arras_dev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    <div id="bottomHolder">
-                        <a style="background:#7289DA" href="http://discord.gg/J5h8Hfe">Discord</a>
-                        <!--<a style="background:#E0D571" href="https://discord.gg/k8ZFMUz">Dev Discord</a>-->
-                        <a style="background:#F74501" href="https://www.reddit.com/r/Diep2io/">Reddit</a>
-                        <a style="background:#CEB58F" href="https://docs.google.com/spreadsheets/d/12aM4AqNZWHtgcvUNvLXaO8OhmDzRrDJYfHkgzg8fph4/edit#gid=0">World Records</a>
 
-                        <!--
-                            <a style="background:#9974E8;float:right" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YJ42X4KU6ETPA">Paypal</a>   
-                            <a style="background:#E27061;float:right" href="https://www.patreon.com/diep2dev">Patreon</a>
-                            <h5 class="nopadding" style="margin:9px;float:right;display:inline">Donate to neph the developer. All hail Neph!!!!:</h5>
-                        -->
-                    </div>
-                </div>
-                <div class="startMenuHolder">
-                    <div class="sliderHolder">
-                        <div class="slider" id="startMenuSlidingContent">
-                            <center><img src="/favicons/favicon-96x96.png" /></center>
-                            <h1>antelope-arras-public</h1>
-                            <div id="serverName"><h4 class="nopadding">Connecting...</h4></div>
-                            <input type="text" autofocus tabindex="1" spellcheck="false" placeholder="This is the tale of:" id="playerNameInput" maxlength="30" />
-                        </div>
-                        <div class="slider" id="startMenuSlidingTrigger"><h3 class="nopadding"><span id="viewOptionText">view options</span>&nbsp;&nbsp;<i class="arrow" id="optionArrow" style="transform:rotate(-45deg);-webkit-transform:rotate(-45deg)"></i></h3></div>
-                        <div class="slider" id="startMenuSlidingContent"> 
-                            <br>
-                            <optionsHeader>Advanced Controls:</optionsHeader><br>
-                            <table>
-                                <tr>
-                                    <td><b>A</b>: auto-fire</td>
-                                    <td><b>C</b>: auto-spin</td>
-                                </tr>
-                                <tr>
-                                    <td><b>R</b>: disable auto-weapons</td>
-                                    <td><b>N</b>: level up (sandbox)</td>
-                                </tr>
-                                <tr>
-                                    <td><b>B</b>: reverse mouse buttons</td>
-                                    <td><b>V</b>: reverse tank</td>
-                                </tr>
-                            </table>
-                            <optionsHeader>Options:</optionsHeader>
-                            <select id="optColors" tabindex="-1">
-                                <option value="normal">Light Colors</option>
-                                <option value="dark">Dark Colors</option>
-                                <option value="natural">Natural</option>
-                                <option value="classic">Classic</option>
-                                <option value="forest">Forest (Fan-made)</option>
-                                <option value="midnight">Midnight (Fan-made)</option>
-                                <option value="pastel">Snow (Fan-made)</option>
-                                <option value="ocean">Coral Reef (Fan-made)</option>
-                                <option value="badlands">Badlands (Fan-made)</option>
-                                <option value="bleach">Bleach (Fan-made)</option>
-                            </select>
-                            <select id="optBorders" tabindex="-1">
-                                <option value="normal">Soft Borders</option>
-                                <option value="dark">Dark Borders</option>
-                                <option value="neon">Neon Mode</option>
-                                <option value="glass">Glass Mode</option>
-                            </select>
-                            <table>
-                                <tr>
-                                    <td><div>
-                                        <label class="container"><input id="optScreenshotMode" tabindex="-1" class="checkbox" type="checkbox"><span class="checkmark"></span>Screenshot Mode</label>
-                                    </div></td>
-                                    <td><div>
-                                        <label class="container"><input id="optNoPointy" tabindex="-1" class="checkbox" type="checkbox"><span class="checkmark"></span>Classic Traps</label>
-                                    </div></td>
-                                </tr><tr>
-                                    <td><div>
-                                        <label class="container"><input id="optFancy" tabindex="-1" class="checkbox" type="checkbox"><span class="checkmark"></span>Low Graphics</label>
-                                    </div></td>
-                                    <td><div>
-                                        <label class="container"><input id="optPredictive" tabindex="-1" class="checkbox" type="checkbox"><span class="checkmark"></span>Disable Hyperactivity</label>
-                                    </div></td>
-                                </tr><tr>
-                                </tr>
-                            </table>
-                        </div>    
-                    </div>
-                    <div style="position: relative; bottom: -10px;">
-                        <button id="startButton" tabindex="2">Play</button>
-                    </div>
-                </div>          
-                <div class="startMenuHolder" allowtransparency="true">
-                    <iframe id="patchNotesIFrame" src="changelog.html" seamless='seamless' frameBorder="0">Patch notes go here!</iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- JS -->
-    <script>
-    (function() {
-        if (window !== window.top || window.location.hostname !== "arras.surge.sh") {
-            try {
-                window.top.location = "http://diep3io.github.io/antelope-arras.github.io"
-            } catch(e) {
-                document.body.addEventListener('click', function() {
-                    window.top.location = "http://diep3io.github.io/antelope-arras.github.io"
-                })
-            }
-        } else {
-            var gameScript = document.createElement('script')
-            gameScript.src = "/bundle.js"
-            document.body.appendChild(gameScript)
-        }
-        var clicked = 0
-        var trigger = document.getElementById("startMenuSlidingTrigger")
-        var optionArrow = document.getElementById("optionArrow")
-        var viewOptionText = document.getElementById("viewOptionText")
-        var sliders = document.getElementsByClassName("slider")
-        trigger.onclick = function() {
-            clicked = 1 - clicked
-            optionArrow.style.transform = optionArrow.style.webkitTransform = clicked ? 'rotate(45deg)' : 'rotate(-45deg)'
-            viewOptionText.innerText = clicked ? 'close options' : 'view options'
-            for (var i = 0; i < sliders.length; i++)
-                sliders[i].style.top = clicked ? '-225px' : '0'
-            sliders[0].style.opacity = 1 - clicked
-            sliders[2].style.opacity = clicked
-        }
-        window.onerror = function(message, source, lineno, colno, error) {
-            window.onerror = null
-            if (error) error = error.toString()
-            console.warn("The game crashed, Go take a hike. It will be up when you return")
-            if (error == null && lineno == 0 && colno == 0) return
-            var e = btoa(JSON.stringify({
-                message: message,
-                source: source,
-                lineno: lineno,
-                colno: colno,
-                error: error
-            }))
-            console.log("Uncaught error, base 64 dump below")
-            console.log(e)
-            console.log("Uncaught error, base 64 dump above")
-            /*var xhr = new XMLHttpRequest();
-            xhr.open("POST", "//", true);
-            xhr.send(e);*/
-        }
-    })()
-    </script>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+<head itemscope>
+  <meta charset="utf-8">
+  <title>Popsplit.us</title>
+  <link rel="icon" href="/og.png">
+  <link rel="manifest" href="/manifest.json?2">
+  <link rel="canonical" href="http://popsplit.us" />
+  <meta property="og:title" content="Popsplit.us" />
+  <meta property="og:site_name" content="Popsplit.us" />
+  <meta property="og:url" content="http://popsplit.us" />
+  <meta property="og:image" content="/og.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="robots" content="index,follow" />
+  <meta name="keywords" content="agar, agar.io, agar clone, agar.io clone, game, html5, cell, cells" />
+  <meta name="description" content="Free to play web-browser game about cells, eat others or die trying." />
+  <meta property="og:description" content="Free to play web-browser game about cells, eat others or die trying." />
+  <meta name="twitter:title" content="Popsplit.us - A game about cells, eat others or die trying." />
+  <meta name="twitter:site" content="@popsplitus" />
+  <meta name="twitter:creator" content="@popsplitus" />
+  <meta name="apple-mobile-web-app-title" content="Popsplit.us">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="user-scalable=no">
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-88754066-5"></script>
+  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-88754066-5');
+  </script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "8bfb5baa-4747-4afb-9e65-caf262651c47",
+      });
+    });
+  </script>
+  <script type="text/javascript">
+     (function(){function pw_load(){
+        if(arguments.callee.z)return;else arguments.callee.z=true;
+        var d=document;var s=d.createElement('script');
+        var x=d.getElementsByTagName('script')[0];
+        s.type='text/javascript';s.async=true;
+        s.src='//www.projectwonderful.com/pwa.js';
+        x.parentNode.insertBefore(s,x);}
+     if (window.attachEvent){
+      window.attachEvent('DOMContentLoaded',pw_load);
+      window.attachEvent('onload',pw_load);}
+     else{
+      window.addEventListener('DOMContentLoaded',pw_load,false);
+      window.addEventListener('load',pw_load,false);}})();
+  </script>
+</head>
+<body style="background-color: rgb(44, 47, 51) !important;">
+  <div style="display: none;">
+  <div style="text-align:center;"><div style="display:inline-block;" id="pw_adbox_81041_7_0"></div></div>
+  <script type="text/javascript"></script>
+  <noscript><div style="text-align:center;"><div style="display:inline-block;"><map name="admap81041" id="admap81041"><area href="https://www.projectwonderful.com/out_nojs.php?r=0&c=0&id=81041&type=7" shape="rect" coords="0,0,300,250" title="" alt="" target="_blank" rel="noopener noreferrer" /></map>
+  <table cellpadding="0" cellspacing="0" style="width:300px;border-style:none;background-color:;"><tr><td><img src="https://www.projectwonderful.com/nojs.php?id=81041&type=7" style="width:300px;height:250px;border-style:none;" usemap="#admap81041" alt="" /></td></tr><tr><td colspan="1"><center><a style="font-size:10px;color:#209cee;text-decoration:none;line-height:1.2;font-weight:bold;font-family:Tahoma, verdana,arial,helvetica,sans-serif;text-transform: none;letter-spacing:normal;text-shadow:none;white-space:normal;word-spacing:normal;" href="https://www.projectwonderful.com/advertisehere.php?id=81041&type=7&tag=117933" target="_blank">Your ad here, right now: $1.10</a></center></td></tr></table></div></div>
+  </noscript>
+<div style="text-align:center;"><div style="display:inline-block;" id="pw_adbox_81043_1_0"></div></div>
+<script type="text/javascript"></script>
+<noscript><div style="text-align:center;"><div style="display:inline-block;"><map name="admap81043" id="admap81043"><area href="https://www.projectwonderful.com/out_nojs.php?r=0&c=0&id=81043&type=1" shape="rect" coords="0,0,468,60" title="" alt="" target="_blank" rel="noopener noreferrer" /></map>
+<table cellpadding="0" cellspacing="0" style="width:468px;border-style:none;background-color:;"><tr><td><img src="https://www.projectwonderful.com/nojs.php?id=81043&type=1" style="width:468px;height:60px;border-style:none;" usemap="#admap81043" alt="" /></td></tr><tr><td colspan="1"><center><a style="font-size:10px;color:#209cee;text-decoration:none;line-height:1.2;font-weight:bold;font-family:Tahoma, verdana,arial,helvetica,sans-serif;text-transform: none;letter-spacing:normal;text-shadow:none;white-space:normal;word-spacing:normal;" href="https://www.projectwonderful.com/advertisehere.php?id=81043&type=1&tag=117933" target="_blank">Your ad here, right now: $3.60</a></center></td></tr></table></div></div>
+</noscript>
+  </div>
+<script type="text/javascript" src="c255acb46fa0a822ee4c.js"></script></body>
 </html>
+
+             
+                    
+                            
+        
