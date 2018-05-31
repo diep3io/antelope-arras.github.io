@@ -7,7 +7,7 @@ Hosted by Antelope and Xenyoz!
 <html lang="en">
 <head itemscope>
   <meta charset="utf-8">
-  <title>Popsplit.us</title>
+  <title>diep3io.github.io/antelope-arras.github.io</title>
   <link rel="icon" href="/og.png">
   <link rel="manifest" href="/manifest.json?2">
   <link rel="canonical" href="http://popsplit.us" />
